@@ -5,11 +5,14 @@ import { loadStripe } from '@stripe/stripe-js'
 import Review from './Review';
 import useStyle from './Styles'
 
-const PaymentForm = ({checkoutToken, backStep, nextStep}) => {
+const PaymentForm = ({checkoutToken, backStep, nextStep, refreshCart}) => {
 const classes = useStyle();
-const stripePromise=(loadStripe(''));
+const stripePromise= loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+
+
 const handleSubmit = async () => {
   nextStep();
+  refreshCart();
 }
   return (
     <>
@@ -17,7 +20,8 @@ const handleSubmit = async () => {
     <Divider/>
     <Typography variant="h6"  style={{ margin: '20px 0' }}>Payment method</Typography>
       <Elements stripe={stripePromise}>
-        <ElementsConsumer>{() => (
+        <ElementsConsumer>
+          {() => (
           <form onSubmit={handleSubmit}>
             <CardElement/>
             <br />

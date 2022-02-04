@@ -15,6 +15,7 @@ const AddressForm = ({checkoutToken, proceed}) => {
   const [shippingSubdivision,setShippingSubdivision]= useState('');
   const [shippingOptions,setShippingOptions]= useState([]);
   const [shippingOption,setShippingOption]= useState('');
+
   const methods = useForm();
   const classes =useStyles();
 
@@ -31,6 +32,7 @@ const AddressForm = ({checkoutToken, proceed}) => {
     const { subdivisions } = await commerce.services.localeListSubdivisions(countryCode);
     setShippingSubdivisions(subdivisions);
     setShippingSubdivision(Object.keys(subdivisions)[0]);
+    console.log(countryCode, shippingSubdivisions, Object.keys(subdivisions)[0]);
   };
 
   const handleShippingOptions = async(checkoutTokenId, country, region) => {
