@@ -32,7 +32,9 @@ const AddressForm = ({checkoutToken, proceed}) => {
     const { subdivisions } = await commerce.services.localeListSubdivisions(countryCode);
     setShippingSubdivisions(subdivisions);
     setShippingSubdivision(Object.keys(subdivisions)[0]);
-    console.log(countryCode, shippingSubdivisions, Object.keys(subdivisions)[0]);
+
+    //console.log(countryCode, shippingSubdivisions, Object.keys(subdivisions)[0]);
+
   };
 
   const handleShippingOptions = async(checkoutTokenId, country, region) => {

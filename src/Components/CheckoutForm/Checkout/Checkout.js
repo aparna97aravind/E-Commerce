@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
+
 import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button, CssBaseline} from '@material-ui/core';
+
 import useStyles from './Styles';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
@@ -8,9 +10,9 @@ import {Link} from 'react-router-dom'
 
 const steps = ['Shipping Address', 'Payment Details'];
 
+
 const Checkout = ({ cart, refreshCart }) => {
   const classes = useStyles();
-
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [activeStep, setActiveStep] = useState(0);
   const [shippingData, setShippingData] = useState({});
@@ -33,7 +35,6 @@ const Checkout = ({ cart, refreshCart }) => {
 
   const proceedToPay = (data) => {
     setShippingData(data);
-    nextStep();
   }
 
   let Confirmation = () => (activeStep === 2 ? (
@@ -49,6 +50,7 @@ const Checkout = ({ cart, refreshCart }) => {
       <CircularProgress />
     </div>
   ));
+
 
   const Form = () => activeStep === 0 ?
  <AddressForm checkoutToken = {checkoutToken} proceed={proceedToPay}/>

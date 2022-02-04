@@ -41,7 +41,7 @@ const App = () => {
     const newCart = await commerce.cart.refresh();
     setCart(newCart);
   };
-
+  
   useEffect(() => {
     fetchProducts();
     fetchCart();
@@ -62,7 +62,9 @@ const App = () => {
                   handleCartItemQuantity = {handleCartItemQuantity}/>
             </Route>
             <Route exact path = '/checkout'>
+
                 <Checkout cart={cart} refreshCart={refreshCart}/>
+
             </Route>
           </Switch>
     </Router>

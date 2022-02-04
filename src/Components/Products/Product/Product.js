@@ -14,7 +14,9 @@ const Product = ({ product , onAddToCart}) => {
 
       <CardContent>
         <div className={classes.CardContent}>
+
           <Typography variant="h5">
+
             {product.name}
           </Typography>
           <Typography variant="h4">
