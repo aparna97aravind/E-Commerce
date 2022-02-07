@@ -28,7 +28,8 @@ const Product = ({ product , onAddToCart}) => {
 
       <CardActions className={classes.CardActions}>
         <IconButton aria-label="Add to Cart" onClick = {() => onAddToCart(product.id, 1)}>
-          <AddShoppingCart/>
+          <span><AddShoppingCart/></span>
+          <span><Typography>ADD TO CART</Typography></span>
         </IconButton>
       </CardActions>
 

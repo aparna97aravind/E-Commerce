@@ -35,7 +35,6 @@ const Checkout = ({ cart, refreshCart }) => {
 
   const proceedToPay = (data) => {
     setShippingData(data);
-    nextStep();
   }
 
   let Confirmation = () => (activeStep === 2 ? (
