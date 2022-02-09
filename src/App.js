@@ -20,7 +20,6 @@ const App = () => {
   const handleAddToCart = async(productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity);
     setCart(cart);
-    alert("Item Added to your cart!");
   }
 
   const handleCartItemQuantity = async(productId, quantity) => {
@@ -38,6 +37,11 @@ const App = () => {
     setCart(cart);
   }
 
+  const refreshCart = async () => {
+    const newCart = await commerce.cart.refresh();
+    setCart(newCart);
+  };
+  
   useEffect(() => {
     fetchProducts();
     fetchCart();
@@ -58,7 +62,9 @@ const App = () => {
                   handleCartItemQuantity = {handleCartItemQuantity}/>
             </Route>
             <Route exact path = '/checkout'>
-                <Checkout cart={cart}/>
+
+                <Checkout cart={cart} refreshCart={refreshCart}/>
+
             </Route>
           </Switch>
     </Router>

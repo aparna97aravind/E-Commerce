@@ -14,7 +14,9 @@ const Product = ({ product , onAddToCart}) => {
 
       <CardContent>
         <div className={classes.CardContent}>
-          <Typography variant="h4">
+
+          <Typography variant="h5">
+
             {product.name}
           </Typography>
           <Typography variant="h4">
@@ -26,7 +28,8 @@ const Product = ({ product , onAddToCart}) => {
 
       <CardActions className={classes.CardActions}>
         <IconButton aria-label="Add to Cart" onClick = {() => onAddToCart(product.id, 1)}>
-          <AddShoppingCart/>
+          <span><AddShoppingCart/></span>
+          <span><Typography>ADD TO CART</Typography></span>
         </IconButton>
       </CardActions>
 
